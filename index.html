@@ -1,21 +1,50 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Master Blind Test</title>
-  <style>
-    :root { color-scheme: light; font-family: Arial, "PingFang SC", sans-serif; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f4f1ea; color: #171717; }
-    main { width: min(42rem, calc(100% - 3rem)); }
-    p { color: #5a564f; line-height: 1.7; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Master Blind Test</h1>
-    <p>摄影大师盲测正在准备发布。</p>
-    <p>The photography master blind test is being prepared for release.</p>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f0e8" />
+    <title>Master Blind Test</title>
+    <meta name="description" content="凭直觉判断哪张照片出自摄影大师。" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./">MASTER / BLIND TEST</a>
+      <button id="lang-button" class="text-button" type="button">EN</button>
+    </header>
+
+    <main id="app" class="shell" aria-live="polite"></main>
+
+    <template id="home-template">
+      <section class="hero">
+        <p class="eyebrow" data-i18n="eyebrow">摄影直觉实验 · 娱乐测试版</p>
+        <h1 data-i18n="headline">你认得出<br />大师之作吗？</h1>
+        <p class="lede" data-i18n="lede">不看名字，不看年代。只看照片，凭直觉作答。</p>
+      </section>
+      <section class="setup-card">
+        <fieldset>
+          <legend data-i18n="mode">测试模式</legend>
+          <div class="mode-grid">
+            <label><input type="radio" name="mode" value="mixed" checked /><span><strong data-i18n="mixed">混合</strong><small data-i18n="mixedHint">单双题型随机出现</small></span></label>
+            <label><input type="radio" name="mode" value="pair" /><span><strong data-i18n="pair">双图</strong><small data-i18n="pairHint">选出大师作品</small></span></label>
+            <label><input type="radio" name="mode" value="single" /><span><strong data-i18n="single">单图</strong><small data-i18n="singleHint">判断是否大师作品</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="length">题目数量</legend>
+          <div class="count-row">
+            <label><input type="radio" name="count" value="10" checked /><span>10</span></label>
+            <label><input type="radio" name="count" value="15" /><span>15</span></label>
+            <label><input type="radio" name="count" value="20" /><span>20</span></label>
+          </div>
+        </fieldset>
+        <button id="start-button" class="primary" type="button" data-i18n="start">开始测试</button>
+        <p class="fine-print" data-i18n="disclaimer">娱乐测试版。题库与答案保存在网页中，不收集个人信息。</p>
+      </section>
+    </template>
+
+    <script src="works.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
